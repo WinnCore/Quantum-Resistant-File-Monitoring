@@ -1,4 +1,4 @@
-# CharmedWOA ARM64 Antivirus Suite
+WinnCore AV
 
 [![Platform](https://img.shields.io/badge/platform-Linux%20ARM64-blue)](https://github.com/WinnCore/Quantum-Resistant-File-Monitoring)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green)](LICENSE)
