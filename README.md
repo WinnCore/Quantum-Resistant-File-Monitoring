@@ -334,10 +334,8 @@ Licensed under the **Apache License, Version 2.0** ([LICENSE](LICENSE) or http:/
 
 ## Contact
 
-- **Maintainer**: CharmedWOA Security Team
-- **Email**: security@charmedwoa.example (placeholder - update for production)
-- **Issues**: https://github.com/WinnCore/Quantum-Resistant-File-Monitoring/issues
-- **Security**: See [SECURITY.md](SECURITY.md)
+- **Maintainer**: WinnCore
+email: zw@winncore.com
 
 ---
 
