@@ -1,0 +1,53 @@
+[workspace]
+members = [
+    "av-core",
+    "av-daemon",
+    "av-quarantine",
+    "av-cli",
+    "av-signatures"
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+authors = ["CharmedWOA Security Team <security@charmedwoa.example>"]
+license = "Apache-2.0"
+version = "0.1.0"
+
+[workspace.dependencies]
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "env-filter"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "fs", "io-util", "time"] }
+bytes = "1"
+async-trait = "0.1"
+config = "0.14"
+dirs = "5"
+sha2 = "0.10"
+rand = "0.8"
+parking_lot = "0.12"
+clap = { version = "4", features = ["derive", "env", "string"] }
+chrono = { version = "0.4", features = ["serde"] }
+notify = "6"
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
+ring = "0.17"
+ed25519-dalek = "2"
+goblin = { version = "0.8", features = ["elf64"] }
+yara = { package = "yara", version = "0.23", default-features = false, features = ["vendored"] }
+bloom = "0.3"
+walkdir = "2"
+semver = { version = "1", features = ["serde"] }
+url = "2"
+base64 = "0.21"
+hex = "0.4"
+appdirs = "0.2"
+heim = "0.1.0-alpha.4"
+seccomp = "0.2"
+landlock = "0.3"
+serde_with = "3"
+prost = "0.12"
+indicatif = "0.17"
+rayon = "1"

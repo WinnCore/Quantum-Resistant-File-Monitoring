@@ -1,0 +1,38 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# Build artifacts
+/build/
+/artifacts/
+*.deb
+*.rpm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Quarantine test files
+/var/lib/av/
+/tmp/av-test/
+
+# Configuration overrides
+/config/local.toml
+
+# Keys and secrets (NEVER commit these)
+*.key
+*.pem
+*.p12
+secrets/
+
+# OS
+Thumbs.db
