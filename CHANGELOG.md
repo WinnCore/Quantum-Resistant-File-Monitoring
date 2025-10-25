@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-01-24
+
+### Added
+- **YARA Integration**: Real signature scanning with production rules
+  - EICAR test file detection
+  - UPX-packed ARM64 ELF detection
+  - Reverse shell indicators
+  - Crypto mining patterns
+  - Ransomware-like file encryptor detection
+  - Suspicious syscall density heuristics
+- **Shannon Entropy Analysis**: Detects packed/encrypted binaries
+  - Per-file mean entropy calculation
+  - High-entropy region detection (>7.5 bits/byte)
+  - Suspicious 4KB chunk analysis
+- **Integration Tests**: Real malware detection tests
+  - EICAR test file scanning
+  - Clean file false-positive verification
+  - Entropy detection for encrypted data
+  - UPX packed binary detection
+- **fanotify Module**: Real-time monitoring framework (av-daemon/src/fanotify.rs)
+  - Permission mode with file blocking capability
+  - Audit-only mode (unprivileged fallback)
+  - CAP_SYS_ADMIN detection
+
+### Changed
+- `av-core/src/engine.rs`: Wire YARA runtime (not stubs)
+- Scanning now reads up to 2MB (was 256KB)
+- Entropy calculation with chunked analysis
+- Contact changed to zw@winncore.com
+
+### Security
+- YARA rules loaded with 30-second timeout
+- Memory-safe entropy calculation
+- Read limits prevent OOM on large files
+
 ## [0.1.0] - 2025-01-24
 
 ### Added

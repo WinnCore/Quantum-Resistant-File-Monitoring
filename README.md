@@ -7,7 +7,7 @@
 
 A **defensive security scaffold** for a user-space antivirus suite specifically engineered for **ARM64 Linux systems**, with first-class support for the **Lenovo ThinkPad X13s** running **Ubuntu 25.10 "Questing Quokka"**.
 
-**Status**: v0.1.0 Scaffold - Core components are stubs. YARA integration, fanotify permission loop, and signature updates are planned for v0.2.0+.
+**Status**: v0.2.0 Functional - YARA engine wired, entropy analysis implemented, EICAR detection working. fanotify integration ready for testing.
 
 ## Overview
 
@@ -256,19 +256,30 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## Roadmap
 
-### Current Status (v0.1.0 - Scaffold)
+### Current Status (v0.2.0 - Functional)
 - ✅ Workspace structure with all crates
-- ✅ Read-only scanning primitives
-- ✅ Quarantine encryption/integrity
+- ✅ **Real YARA scanning** with production rules
+- ✅ **Shannon entropy analysis** for packed/encrypted detection
+- ✅ **EICAR test file detection** working
+- ✅ Quarantine encryption/integrity (AES-256-GCM + SHA-256)
 - ✅ AppArmor + seccomp policies
 - ✅ Systemd hardening
-- ✅ CLI scaffolding
+- ✅ CLI with JSON output
+- ✅ **Integration tests** with actual malware detection
+
+**Production YARA Rules**:
+- EICAR test file detection
+- UPX-packed ARM64 ELF binaries
+- Reverse shell indicators
+- Crypto mining patterns
+- Mass file encryptor detection (ransomware)
+- Suspicious syscall density analysis
 
 ### Next Milestones
 
-**v0.2.0 - Core Functionality**
-- [ ] Wire YARA runtime with vendored rules
-- [ ] Implement fanotify event loop (permission responses)
+**v0.3.0 - Real-Time Protection**
+- [ ] fanotify permission responses (requires CAP_SYS_ADMIN)
+- [ ] inotify audit-only mode (unprivileged fallback)
 - [ ] Bloom filter acceleration for signature matching
 - [ ] Heuristic tuning with ARM64 baseline datasets
 
