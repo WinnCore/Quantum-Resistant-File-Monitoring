@@ -113,9 +113,9 @@ impl QuarantineManager {
         let (nonce_bytes, cipher) = data.split_at(12);
         let key = LessSafeKey::new(UnboundKey::new(&AES_256_GCM, &self.cfg.encryption_key)?);
         let mut buffer = cipher.to_vec();
-        key.open_in_place(Nonce::assume_unique_for_key(<[u8; 12]>::try_from(nonce_bytes)?), Aad::empty(), &mut buffer)?;
-        // ring returns decrypted data in place with trailing tag removed
-        Ok(buffer)
+        let decrypted = key.open_in_place(Nonce::assume_unique_for_key(<[u8; 12]>::try_from(nonce_bytes)?), Aad::empty(), &mut buffer)?;
+        // ring returns a slice to the decrypted data with the tag removed
+        Ok(decrypted.to_vec())
     }
 }
 

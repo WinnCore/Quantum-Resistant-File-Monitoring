@@ -3,6 +3,7 @@
 //! Runs unprivileged by default. Capabilities, if needed, are attached via
 //! systemd unit overrides and documented in the security guide.
 
+use std::sync::Arc;
 use std::time::Duration;
 
 use anyhow::Context;
@@ -27,7 +28,7 @@ async fn main() -> anyhow::Result<()> {
     security::install_seccomp_filter();
     security::load_apparmor_profile();
 
-    let shutdown = Notify::new();
+    let shutdown = Arc::new(Notify::new());
     let shutdown_signal = shutdown.clone();
 
     tokio::spawn(async move {
@@ -57,7 +58,7 @@ fn load_config() -> anyhow::Result<ScannerConfig> {
 async fn run_monitor_loop(
     scanner: Scanner,
     _config: &ScannerConfig,
-    shutdown: &Notify,
+    shutdown: &Arc<Notify>,
 ) -> anyhow::Result<()> {
     loop {
         tokio::select! {
@@ -73,7 +74,7 @@ async fn run_monitor_loop(
     Ok(())
 }
 
-async fn watch_shutdown(shutdown: Notify) -> anyhow::Result<()> {
+async fn watch_shutdown(shutdown: Arc<Notify>) -> anyhow::Result<()> {
     signal::ctrl_c().await?;
     shutdown.notify_waiters();
     Ok(())

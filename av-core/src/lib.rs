@@ -83,13 +83,19 @@ pub enum RecommendedAction {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::io::Write;
 
     #[tokio::test]
     async fn validates_configuration_before_scanning() {
         let cfg = ScannerConfig::default();
         let scanner = Scanner::new(cfg).expect("config should validate");
+
+        // Create a temporary file for testing
+        let mut temp_file = tempfile::NamedTempFile::new().expect("failed to create temp file");
+        temp_file.write_all(b"hello world").expect("failed to write to temp file");
+
         let empty = scanner
-            .scan_path(std::env::temp_dir())
+            .scan_path(temp_file.path())
             .await
             .expect("scan succeeds");
         assert!(matches!(empty.recommended_action, RecommendedAction::Allow));

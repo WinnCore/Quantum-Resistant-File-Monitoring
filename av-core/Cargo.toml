@@ -35,3 +35,6 @@ bloom.workspace = true
 walkdir.workspace = true
 chrono.workspace = true
 semver.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

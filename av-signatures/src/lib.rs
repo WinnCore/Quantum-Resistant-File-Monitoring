@@ -3,6 +3,7 @@
 use std::path::{Path, PathBuf};
 
 use anyhow::Context;
+use base64::Engine;
 use ed25519_dalek::{Signature, VerifyingKey};
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -58,7 +59,7 @@ impl Updater {
         let signed: SignedBundle = serde_json::from_slice(&body)?;
         let bundle = signed.bundle;
         let sig = Signature::from_bytes(&signed.signature);
-        let key_bytes = base64::decode(&source.public_key)?;
+        let key_bytes = base64::engine::general_purpose::STANDARD.decode(&source.public_key)?;
         let key = VerifyingKey::try_from(&key_bytes[..]).context("invalid ed25519 key")?;
         key.verify_strict(serde_json::to_string(&bundle)?.as_bytes(), &sig)
             .context("signature verification failed")?;
@@ -71,5 +72,5 @@ impl Updater {
 struct SignedBundle {
     bundle_checksum: String,
     bundle: RuleBundle,
-    signature: [u8; 64],
+    signature: Vec<u8>,
 }
