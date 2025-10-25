@@ -10,7 +10,7 @@ resolver = "2"
 
 [workspace.package]
 edition = "2021"
-authors = ["CharmedWOA Security Team <security@charmedwoa.example>"]
+authors = ["Zachary Winn <zw@winncore.com>"]
 license = "Apache-2.0"
 version = "0.1.0"
 

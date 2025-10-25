@@ -21,7 +21,7 @@ We take security seriously. If you discover a vulnerability, please follow **res
 
 Instead:
 
-1. **Email**: security@charmedwoa.example (placeholder - update for production)
+1. **Email**: zw@winncore.com
 2. **Subject**: `[SECURITY] Brief description`
 3. **Include**:
    - Detailed description of the vulnerability
@@ -269,7 +269,7 @@ None reported yet (pre-release).
 
 ## Contact
 
-- **Security Email**: security@charmedwoa.example (placeholder)
+- **Security Email**: zw@winncore.com
 - **PGP Key**: [Future: Link to public key]
 - **Security Advisories**: https://github.com/WinnCore/Quantum-Resistant-File-Monitoring/security/advisories
 

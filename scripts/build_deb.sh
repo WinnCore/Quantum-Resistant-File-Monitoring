@@ -26,7 +26,7 @@ Version: $VERSION
 Section: utils
 Priority: optional
 Architecture: arm64
-Maintainer: CharmedWOA Security Team <security@charmedwoa.example>
+Maintainer: Zachary Winn <zw@winncore.com>
 Description: User-space antivirus for Lenovo ThinkPad X13s (ARM64)
 CONTROL
 

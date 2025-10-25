@@ -347,7 +347,7 @@ fn test_quarantine_integrity() {
 
 **DO NOT** publicly disclose security vulnerabilities. Instead:
 
-1. Email security@charmedwoa.example (placeholder - update in production)
+1. Email zw@winncore.com
 2. Include:
    - Vulnerability description
    - Steps to reproduce
@@ -381,7 +381,7 @@ This project is **defensive security only**. We will **reject** PRs that:
 
 - **General Questions**: Open a [GitHub Discussion](https://github.com/WinnCore/Quantum-Resistant-File-Monitoring/discussions)
 - **Bug Reports**: Create an [Issue](https://github.com/WinnCore/Quantum-Resistant-File-Monitoring/issues)
-- **Security**: Email security@charmedwoa.example (see [SECURITY.md](SECURITY.md))
+- **Security**: Email zw@winncore.com (see [SECURITY.md](SECURITY.md))
 
 ---
 

@@ -5,7 +5,9 @@
 [![Rust](https://img.shields.io/badge/rust-1.74%2B-orange)](https://www.rust-lang.org)
 [![Security](https://img.shields.io/badge/security-defensive%20only-brightgreen)](SECURITY.md)
 
-A **production-ready**, user-space antivirus suite specifically engineered for **ARM64 Linux systems**, with first-class support for the **Lenovo ThinkPad X13s** running **Ubuntu 25.10 "Questing Quokka"**.
+A **defensive security scaffold** for a user-space antivirus suite specifically engineered for **ARM64 Linux systems**, with first-class support for the **Lenovo ThinkPad X13s** running **Ubuntu 25.10 "Questing Quokka"**.
+
+**Status**: v0.1.0 Scaffold - Core components are stubs. YARA integration, fanotify permission loop, and signature updates are planned for v0.2.0+.
 
 ## Overview
 
@@ -334,8 +336,8 @@ Licensed under the **Apache License, Version 2.0** ([LICENSE](LICENSE) or http:/
 
 ## Contact
 
-- **Maintainer**: CharmedWOA Security Team
-- **Email**: security@charmedwoa.example (placeholder - update for production)
+- **Maintainer**: Zachary Winn
+- **Email**: zw@winncore.com
 - **Issues**: https://github.com/WinnCore/Quantum-Resistant-File-Monitoring/issues
 - **Security**: See [SECURITY.md](SECURITY.md)
 
